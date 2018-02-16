@@ -14,16 +14,44 @@ var loginId       = mconfig.loginId;
 var modRoleId     = mconfig.modRoleId;
 var authorizeData = mconfig.authIds;
 
-if  (authorizeData == null)
+if (authorizeData == null)
 	authorizeData = {}
 
 // Not-so-important config vars
-//var emoteReacts = {default: ["✊"], threat: [message.guild.emojis.get('231283304958001154'), message.guild.emojis.get('232183775549849600'), message.guild.emojis.get('273610959094808576'), message.guild.emojis.get('231273731132096513'), "😡", "😠", "🔥", "😏", "👎"], brag: [message.guild.emojis.get('231283305272705024'), "😎", "💪", "👍", "🥇", "👌", "🤘"], precious: ["💎", "💰", "💲", "💵"]};
+/*
+var emoteReacts =
+{
+    default: ["✊"],
+    threat: [message.guild.emojis.get('231283304958001154'), message.guild.emojis.get('232183775549849600'),
+             message.guild.emojis.get('273610959094808576'), message.guild.emojis.get('231273731132096513'),
+             "😡", "😠", "🔥", "😏", "👎"],
+    brag: [message.guild.emojis.get('231283305272705024'), "😎", "💪", "👍", "🥇", "👌", "🤘"],
+    precious: ["💎", "💰", "💲", "💵"]
+};
+*/
 
-var emoteReacts = {default: ["✊"], threat: ["somedork:231283304958001154", "gravytea:232183775549849600", "thonkang:273610959094808576", "suspicious:231273731132096513", "😡", "😠", "🔥", "😏", "👎", "☠", "⚔"], brag: ["somedork:231283305272705024", "😎", "💪", "👍", "🥇", "👌", "🤘"], precious: ["💎", "💰", "💲", "💵"]};
+var emoteReacts =
+{
+    default: ["✊"],
+    threat: ["somedork:231283304958001154", "gravytea:232183775549849600",
+             "thonkang:273610959094808576", "suspicious:231273731132096513",
+             "😡", "😠", "🔥", "😏", "👎", "☠", "⚔"],
+    brag: ["somedork:231283305272705024", "😎", "💪", "👍", "🥇", "👌", "🤘"],
+    precious: ["💎", "💰", "💲", "💵"]
+};
 
-//var emoteReacts = {default: [":fist:", ":fist:"], threat: ["somedork:231283304958001154", "gravytea:232183775549849600", "thonkang:273610959094808576", "suspicious:231273731132096513", ":rage:", ":angry:", ":fire:", ":smirk:", ":thumbsdown:", ":skull_crossbones:", ":crossed_swords:"], brag: ["somedork:231283305272705024", ":sunglasses:", ":thumbsup:", ":first_place:", ":ok_hand:", ":metal:", ":crown:"], precious: [":gem:", ":moneybag:", ":dollar:", ":heavy_dollar_sign:"]};
-
+/*
+var emoteReacts =
+{
+    default: [":fist:", ":fist:"],
+    threat: ["somedork:231283304958001154", "gravytea:232183775549849600",
+             "thonkang:273610959094808576", "suspicious:231273731132096513",
+             ":rage:", ":angry:", ":fire:", ":smirk:", ":thumbsdown:",
+             ":skull_crossbones:", ":crossed_swords:"],
+    brag: ["somedork:231283305272705024", ":sunglasses:", ":thumbsup:",
+           ":first_place:", ":ok_hand:", ":metal:", ":crown:"],
+    precious: [":gem:", ":moneybag:", ":dollar:", ":heavy_dollar_sign:"]};
+*/
 
 // Other stuff
 var commands    = JSON.parse(fs.readFileSync('commands.json', 'utf8'));
@@ -275,7 +303,7 @@ cmdFuncts.quote = function (msg, cmdStr, argStr, props)
 	msg.channel.fetchMessage(argStr)
 		.then(message => sendMsg (msg.channel, "[" + argStr + ": " + message.cleanContent+"]"));
 }
- 
+
 cmdFuncts.clearReactsOne = function (msg, cmdStr, argStr, props)
 {
 	msg.channel.fetchMessage(argStr)
