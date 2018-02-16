@@ -1,4 +1,4 @@
-﻿var Discord = require("discord.js");
+var Discord = require("discord.js");
 var bot = new Discord.Client();
 const fs = require("fs");
 var exec = require('child_process').execFile;
@@ -48,10 +48,6 @@ var ttsActive = false
 var sayUser = new Array(0);
 var sayMember = new Array(0);
 var sayMessage = new Array(0);
-
-
-butts
-
 
 // Set up regexp stuff
 var keywordRegex = {_thing:true}
